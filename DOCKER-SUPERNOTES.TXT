@@ -152,6 +152,39 @@ run -
    
     - SSH
     ssh -i key.pem user@cont-ip
+============================================
+Working with Container
+https://www.devopsschool.com/tutorial/docker/commands/
 
+
+
+ 175  docker cp devopsschool.txt 1bc5dcee72e2:/opt
+  176  docker exec 1bc5dcee72e2 ls /opt
+  177  ls
+  178  rm -rf devopsschool.txt
+  179  clear
+  180  ls
+  181  ls
+  182  docker cp 1bc5dcee72e2:/opt/devopsschool.txt .
+
+
+    209  docker ps
+  210  docker port 1bc5dcee72e2
+  211  docker run -d jenkins
+  212  docker ps
+  213  docker port e407674ccb05
+  214  docker run -d -p 8080:8080 jenkins
+  215  docker ps
+  216  docker port 7fbaeb4cdf3f
+  217  history
+
+  220  docker run -d --name jenkins1 jenkins
+  221  docker ps
+  222  docker rename 7fbaeb4cdf3f jenkins2
+  223  clear
+  224  docker ps
+
+https://www.devopsschool.com/tutorial/docker/commands/
+Working with Images
 
 
