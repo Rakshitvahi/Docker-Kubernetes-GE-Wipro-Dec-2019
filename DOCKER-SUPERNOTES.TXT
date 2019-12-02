@@ -117,7 +117,13 @@ http://bit.ly/2DC4Ca0
 17 15.206.185.188
 18 52.66.249.90
 
+User Name - ec2-user
+PPK - https://www.devopsschool.com/notes/docker/2019/
+ 	rajesh-mumbai.ppk
 
+PEM - 
+    https://www.devopsschool.com/notes/docker/2019/
+    rajesh-mumbai.pem
 
 
 
