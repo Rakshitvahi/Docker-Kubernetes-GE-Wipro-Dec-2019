@@ -124,6 +124,34 @@ PPK - https://www.devopsschool.com/notes/docker/2019/
 PEM - 
     https://www.devopsschool.com/notes/docker/2019/
     rajesh-mumbai.pem
+===============================================================
+What IS PID 1?
+PM - SYSTEMD
+VM - SYSTEMD
+Container - ANY THING
+
+How to access a Container?
+---------------------------
+    How to get inside a container?
+    - Exec way
+        It execute an executables INSIDE A Container.
+            but -it and /bin/bash
+    - Attach way
+        It attach to PID 1
+
+How to come out of container SAFTly?
+CTRIL + P + Q
+------------
+run - 
+    create -> start -> attach
+
+    How to access a container from outside?
+    - Browsers
+    docker run -p 8080:8080 -d jenkins
+    docker run -p 8090:8080 -d jenkins
+   
+    - SSH
+    ssh -i key.pem user@cont-ip
 
 
 
