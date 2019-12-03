@@ -460,4 +460,65 @@ https://www.devopsschool.com/blog/understand-docker-volume-from-beginner-to-deep
   356  history
 
 Docker Networking
+==============================================
+-----
+    3 KINDS OF Network driver in Docker 
+    - Bridge
+        172.17.0.1
+            DEFAULT  - docker0
+            172.17.0.0/16
+                    172.17.0.2
 
+    - Dev - 
+    172.18.0.1
+
+    Host - 172.31.13.165
+
+    apt-get update && apt-get install -y iputils-ping traceroute net-tools iproute2
+
+ 232  docker network connect bridge 2b9b2d3f7176
+  233  docker attach 2b9b2d3f7176
+  234  ifconfig
+  235  docker attach 2b9b2d3f7176
+  236  clear
+  237  docker netwokr
+  238  docker network
+  239  history | grep exec
+  240  history | grep stop
+  241  docker stop $(docker ps -a -q)
+  242  docker rm $(docker ps -a -q)
+  243  docker network prune
+  244  docker network ls
+  245  clear
+
+  docker network 
+  docker help network
+  docker network create dev --driver
+  docker network ls
+
+  --
+  
+  [root@ip-172-31-13-165 ec2-user]# docker help network
+
+Usage:	docker network COMMAND
+
+Manage networks
+
+Commands:
+  connect     Connect a container to a network
+  create      Create a network
+  disconnect  Disconnect a container from a network
+  inspect     Display detailed information on one or more networks
+  ls          List networks
+  prune       Remove all unused networks
+  rm          Remove one or more networks
+
+    - Host
+    - Null
+
+
+
+ifconfig
+ip a
+ping
+traceroute ip
