@@ -338,3 +338,126 @@ using hub.docker.com
 
 using artifactory/nexus
 using registry
+===================================
+Docker Volume
+-----------------------
+https://www.devopsschool.com/blog/understand-docker-volume-from-beginner-to-deep-dive-level/
+
+242  docker volume ls
+  243  clear
+  244  docker volume ls
+  245  docker volume
+  246  clear
+  247  docker volume create raj
+  248  ls
+  249  cd raj/
+  250  ls
+  251  cd _data/
+  252  ls
+  253  clear
+  254  cd ..
+  255  ls
+  256  cd ..
+  257  ls
+  258  pwd
+  259  clear
+  260  docker ps -a
+  261  docker run -itd -v raj:/opt/rajesh ubuntu
+  262  docker ps
+  263  docker attach 39631f16c100
+  264  lear
+  265  lear
+  266  ls
+  267  clear
+  268  cd raj/
+  269  ls
+  270  cd _data/
+  271  ls
+  272  cd ..
+  273  ls
+  274  cd ..
+  275  ls
+  276  clear
+  277  ls
+  278  clear
+  279  ls
+  280  docker ps
+  281  docker stop 39631f16c100
+  282  docker rm 39631f16c100
+  283  clear
+  284  ls
+  285  cd raj/
+  286  ls
+  287  cd _data/
+  288  ls
+  289  clar
+  290  clear
+  291  docker run -itd -v raj:/opt/rajesh ubuntu
+  292  docker ps
+  293  docker attach 4be02bd0a721
+  294  clear
+  295  ls
+  296  cd ..
+  297  ls
+  298  cd ..
+  299  ls
+  300  docker run -itd -v raj:/opt/rajesh ubuntu
+  301  docker ps
+  302  docker exec ae432e34735a ls /opt/containerd/
+  303  docker exec ae432e34735a ls /opt/
+  304  docker exec ae432e34735a ls /opt/rajesh
+
+306  history
+  307  clear
+  308  ls
+  309  ls
+  310  cd /opt/
+  311  ls
+  312  mkdir rrr
+  313  cd rrr/
+  314  cler
+  315  clear
+  316  ls
+  317  pwd
+  318  docker run -itd -v /opt/rrr:/opt/raju ubuntu
+  319  docker ps
+  320  docker attach 6db116a7dcd7
+  321  clear
+  322  ls
+  323  pwd
+  324  docker stop $(docker ps -a -q)
+  325  docker rm $(docker ps -a -q)
+  326  clear
+  327  docker ps -a
+  328  cd /opt/
+  329  ls
+  330  rrr/
+  331  ls
+  332  cd rrr/
+  333  ls
+  334  docker run -it -v raj:/opt/rr ubuntu
+  335  lsblk
+  336  df -kh
+  337  clear
+  338  cd /var/lib/docker/volumes/
+  339  ls
+  340  docker volume create raja
+  341  ls
+  342  docker run -itd -v raj:/opt/raj -v raja:/opt/raja ubuntu
+  343  histor
+  344  history
+  345  docker stop $(docker ps -a -q)
+  346  docker rm $(docker ps -a -q)
+  347  clear
+  348  ls
+  349  docker ps -a
+  350  docker volume
+  351  docker volume prune
+  352  ls
+  353  docker volume craete rr
+  354  docker volume create rr
+  355  docker volume rm rr/
+  356  history
+
+Docker Networking
+
