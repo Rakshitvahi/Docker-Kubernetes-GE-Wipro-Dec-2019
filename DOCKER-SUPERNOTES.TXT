@@ -175,7 +175,7 @@ https://www.devopsschool.com/tutorial/docker/commands/
   213  docker port e407674ccb05
   214  docker run -d -p 8080:8080 jenkins
   215  docker ps
-  216  docker port 7fbaeb4cdf3f
+  216  docker port 7fbaeb4cdf3fs
   217  history
 
   220  docker run -d --name jenkins1 jenkins
@@ -186,5 +186,129 @@ https://www.devopsschool.com/tutorial/docker/commands/
 
 https://www.devopsschool.com/tutorial/docker/commands/
 Working with Images
+==========================================DAY 2 ====================
+13.234.31.78
+
+ 9  docker info
+   10  clear
+   11  ls
+   12  cd /var/lib/docker
+   13  clear
+   14  ls
+   15  cd overlay2
+   16  ls
+   17  docker pull ubuntu
+   18  clear
+   19  ls
+   20  docker inspect ubuntu
+   21  clear
+   22  docker history ubuntu
+   23  du -h --max-depth=1
+   24  cd ./80201312606b4ccb1d50cc13915b761c5c9f30255eead6965605692d6ec1bd9c
+   25  clear
+   26  ls
+   27  cd diff/
+   28  clear
+   29  ls
+   30  cd ../..
+   31  ls
+   32  du -h --max-depth=1
+   33  cd ./c99fc0cc3ca66abcbbf451d0112aa43466c0cb7a85f546f2ef928ec8a2901c4e
+   34  clear
+   35  ls
+   36  cd diff/
+   37  ls
+   38  cd var/
+
+   ==========================
+   jenkins
+        openjdk:8-jdk
+                buildpack-deps:stretch-scm
+                        buildpack-deps:stretch-curl
+                                    debian:stretch
+                                            scratch
+
+==================================================
+There are 2 method to create image.
+        - Using Container
+----------
+1  clear
+    2  cd
+    3  ls
+    4  pwd
+    5  docker ps -a
+    6  docker stop 7fd2b6efa32d 4b75a4d8af3f
+    7  docker rm 7fd2b6efa32d 4b75a4d8af3f
+    8  clear
+    9  ls
+   10  docker ps
+   11  docker run -itd ubuntu
+   12  clear
+   13  docker ps
+   14  docker exec d07a3806b7fd git
+   15  docker attach d07a3806b7fd
+   16  docker ps
+   17  docker exec rchive.ubuntu.com/ubuntu bionic-backports InRelease
+   18  docker ps
+   19  docker exec d07a3806b7fd git
+   20  docker run -itd ubuntu
+   21  docker -s
+   22  docker ps
+   23  docker exec 98d170838feb git
+   24  docker diff d07a3806b7fd
+   25  ckear
+   26  clear
+   27  ls
+   28  clear
+   29  ls
+   30  clear
+   31  ls
+   32  docker history ubuntu
+   33  docker ps
+   34  docker commit -m"git-up-ub" -a"Rajeshk" d07a3806b7fd git-up-ub
+   35  docker images
+   36  docker history ubuntu
+   37  docker history git-up-ub
+   38  docker ps
+   39  docker stop 98d170838feb d07a3806b7fd
+   40  docker rm 98d170838feb d07a3806b7fd
+   41  docker ps
+   42  docker images
+   43  docker run -itd git-up-ub
+   44  docker ps
+   45  docker exec 6c88c7198fc3 git
+   46  clear
+
+-----------------
 
 
+        - Using Dockerfile.
+
+FROM ubuntu
+MAINTAINER Rajesh K DevOps@Rajeshkumar.xyz
+RUN apt-get update && apt-get install git -y
+
+
+docker build -t ub-up-git-2 .
+
+
+1 13.235.76.240
+2 13.232.220.99
+3 15.206.165.208
+4 52.66.187.137
+5 13.234.21.95
+6 13.233.146.86
+7 15.206.127.68
+8 13.235.87.86
+9 13.232.64.87
+10 52.66.246.96
+11 52.66.246.242
+12 35.154.222.140
+13 52.66.176.66
+14 52.66.239.202
+15 35.154.210.161
+16 13.233.136.114
+17 15.206.84.33
+18 13.127.95.50
+19 13.232.10.79
+20 15.206.163.31
