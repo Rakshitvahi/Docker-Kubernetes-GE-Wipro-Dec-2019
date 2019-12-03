@@ -312,3 +312,29 @@ docker build -t ub-up-git-2 .
 18 13.127.95.50
 19 13.232.10.79
 20 15.206.163.31
+
+
+How to share these images?
+    -------------------------
+using Tar ball
+docker save -o ub-up-git-2.tar ub-up-git-2
+docker load -i ub-up-git-2.tar
+
+using hub.docker.com
+ 180  docker images
+  181  docker tag ub-up-git-2 scmgalaxy/ge1234
+  182  docker images
+  183  86MB
+  184  clear
+  185  docker images
+  186  docker info
+  187  clear
+  188  docker login 
+  189  clear
+  190  docker images
+  191  docker push scmgalaxy/ge1234
+  192  clear
+  193  ls
+
+using artifactory/nexus
+using registry
