@@ -1,0 +1,129 @@
+Master
+    API SERVER -> POD -> Container -> Docker Image -> GR
+    ETCD -> POD -> Container -> Docker Image -> GR
+    Controller mgmr -> POD -> Container -> Docker Image -> GR
+    Schedular -> POD -> Container -> Docker Image -> GR
+    
+    Kube Proxy -> POD -> Container -> Docker Image -> GR
+    Kubelet
+    Docker
+
+Worker
+   Kube Proxy -> POD -> Container -> Docker Image -> GR
+    Kubelet
+    Docker 
+
+
+
+Workstation
+
+One Node K8 Clustor - Minikube
+--------------------------------
+Kubernetes on PAAS
+--------------
+AWS - EKS
+AZURE - AKS
+GC - GKE
+
+------------
+Manual Installation
+    - CLOUD
+            PUBLIC - AWS - GC - AZURE 
+            PRIVATE - OPENSTAKE - VMware
+    -------------------------------
+             KOPS
+             https://github.com/kubernetes/kops
+    - Physical Box or VMs.
+            Using Kubeadm
+
+HARDWAY - 
+https://github.com/kelseyhightower/kubernetes-the-hard-way
+===========================================================
+
+Minkube
+    IS VM (LINUX)
+    HAS WHAT?
+    
+    API SERVER -> POD -> Container -> Docker Image -> GR
+    ETCD -> POD -> Container -> Docker Image -> GR
+    Controller mgmr -> POD -> Container -> Docker Image -> GR
+    Schedular -> POD -> Container -> Docker Image -> GR
+    
+    Kube Proxy -> POD -> Container -> Docker Image -> GR
+    Kubelet
+    Docker
+--------
+Pre
+    VT MUST BE ENABLED
+    VIRTUAL BOX MUST BE INSTALLED
+
+    Download a minikube.exe into c:/minikube
+    https://github.com/kubernetes/minikube/releases/latest/download/minikube-installer.exe
+    
+    Download a kubectl.exe into c:/minikube
+    https://storage.googleapis.com/kubernetes-release/release/v1.16.0/bin/windows/amd64/kubectl.exe
+
+    SET c:/minikube in s env variable and
+    $$$$$ minikube init
+
+
+===========================================================
+kubernetes clustor setup using kubeadm.
+---------------------------------------------
+minimum 2 CPU - 4 GB RAM
+Linux 64 BIT
+-----------------------
+Tools
+    Docker
+    kubeadm
+    kubectl
+    Kubelet
+----------------------
+https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-manual-way-in-rhel-7-centos7/
+
+13.126.180.65
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.14.69:6443 --token 942di0.n5ij1wxk4sqr46dr --discovery-token-ca-cert-hash sha256:25d17cb97848f19c5ff6a097d5c18d410d41bff9a4b69cb9885be1ad26caeb16
+
+13.233.91.29
+
+ 1  clear
+    2  kubectl get ns
+    3  kubectl get pods
+    4  kubectl get pods -n=kube-system
+    5  kubectl describe pod coredns-5644d7b6d9-57jxd -n=kube-system
+    6  kubectl get nodes
+    7  kubectl describe node ip-172-31-14-69.ap-south-1.compute.internal
+    8  kubectl describe pod coredns-5644d7b6d9-57jxd -n=kube-system
+
+
+     11  kubectl
+   12  kubectl clear
+   13  kubectl
+   14  kubectl cluster-info
+   15  kubectl get nodes
+   16  kubectl get ns
+   17  kubectl get pods --all-namespaces
+   18  clear
+   19  ls
+
+    kubectl api-resources
+    kubectl api-versions
+    kubectl config
+====================
+13.126.180.65
+ec2-user
+================
