@@ -416,3 +416,109 @@ attach         Attach to a running container
     api-resources  Print the supported API resources on the server
   api-versions   Print the supported API versions on the server, in the form of "group/version"
   config         Modify kubeconfig files
+===================================
+
+Working with Replication Controller
+===================================
+What is Replication Controller
+Replication - 1 POD To X POD.
+Controller -> X POD
+-----------
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: hello-rc
+spec:
+  replicas: 2   
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-ctr
+        image: nginx
+        ports:
+        - containerPort: 80
+
+
+LIST a Replication Controller
+Create a Replication Controller
+        yaml
+        cmd
+EXPLAIN A Replication Controller
+LIST a Replication Controller
+DESCRIBE A Replication Controller
+EDIT A Replication Controller
+    Cmd -using EDIT
+    YAML - using Apply
+CONSUME A Replication Controller
+  - Scale
+  - ACTUAL VS Desire.
+
+DELETE A Replication Controller
+    cmd - using delete
+    yaml using delete
+369  ls
+  370  kubectl
+  371  kubectl api-resources
+  372  kubectl
+  373  kubectl api-versions
+  374  clear
+  375  kubectl get rc
+  376  kubectl create
+  377  clear
+  378  vi rc.yaml
+  379  kubeclt create  -f rc.yaml
+  380  kubectl create  -f rc.yaml
+  381  kubectl get rc
+  382  kubectl get pods
+  383  kubectl get rc
+  384  clear
+  385  ls
+  386  kubectl get pods
+  387  kubectl explain rc
+  388  kubectl explain rc.spec
+  389  kubectl explain rc.spec.spec
+  390  kubectl explain rc.spec
+  391  kubectl explain rc.spec.template
+  392  kubectl explain rc.spec.template.spec
+  393  kubectl explain rc.spec.template.spec.containers
+  394  clear
+  395  kubectl get pods
+  396  kubectl get rc
+  397  kubectl describe rc hello-rc
+  398  clear
+  399  ls
+  400  kubectl edit rc hello-rc
+  401  kubectl get pods
+  402  clear
+  403  kubectl get pods
+  404  clear
+  405  kubectl get pods
+  406  kubectl edit rc hello-rc
+  407  clear
+  408  kubectl get pods
+  409  clear
+  410  kubectl get pods
+  411  vi rc.yaml
+  412  kubectl apply -f rc.yaml
+  413  kubectl get pods
+  414  clear
+  415  ls
+  416  kubectl get pods
+  417  kubectl delete pod hello-rc-9bdd4
+  418  kubectl get pods
+  419  clear
+  420  kubectl
+  421  kubectl scale
+  422  clear
+  423  kubectl scale --replicas=4 rc/hello-rc
+  424  kubectl get pods
+  425  kubectl scale --replicas=4 rc/hello-rc
+  426  clear
+  427  ls
+  428  kubectl get rc
+  429  kubectl delete rc hello-rc
+  430  kubectl get pods
+  431  history
