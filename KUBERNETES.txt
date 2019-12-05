@@ -176,3 +176,243 @@ KUBERNETES Worker
 How to delete kubeadm setup from MASTER as well NODe?
 ==========
 https://www.devopsschool.com/blog/how-to-delete-remove-clean-existing-corrupted-or-old-kubeadm-kubernetes-clusters-setup/
+
+
+rajesh@scmgalaxy.com
+
+kubeadm join 172.31.22.148:6443 --token eda2pj.727o76zrlm46gr7s --discovery-token-ca-cert-hash sha256:d15c0106144d3197bf1fc0805a7b4d981c365c1ac95f0e7d25c92c71ab9c403a
+
+=================================================
+Working with any Resources in Kubernetes.
+=============================================
+
+Working with namespaces
+-------------------------
+LIST a namespaces
+Create a namespaces
+    2 WAY
+LIST a namespaces
+DESCRIBE A namespaces
+EXPLAIN A namespaces
+LIST a namespaces
+
+EDIT A namespaces
+    2 WAY
+CONSUME A namespaces
+DELETE A namespaces
+
+345  kubectl get ns
+  346  kubectl create ns pritam
+  347  kubectl get ns
+  348  kubectl get pods
+  349  kubectl get pods --ns pritam
+  350  kubectl get pods --ns=pritam
+  351  kubectl get pods --n pritam
+  352  kubectl get pods -n pritam
+  353  kubectl get pods -n=kube-system
+  354  kubectl get pods -n kube-system
+  355  kubectl describe node ip-172-31-14-69.ap-south-1.compute.internal
+  356  clear
+  357  kubectl get pods
+  358  kubectl get pods -n kube-system
+  359  kubectl api-resources
+  360  kubectl volumeattachments
+  361  kubectl get volumeattachments
+  362  kubectl get volumeattachments -n kube-system
+  363  kubectl config
+  364  kubectl get config
+  365  kubectl cluster-info
+  366  clear
+  367  kubectl get nodes
+  368  kubectl get ns
+  369  kubectl delete ns aditya-sheshagiri manian pritam
+  370  clear
+  371  kubectl get ns
+  372  kubectl create ns
+  373  kubectl create ns rajesh
+  374  clear
+  375  ls
+  376  kubectl get ns
+  377  kubectl describe ns rajesh
+  378  clear
+  379  kubectl
+  380  clear
+  381  kubectl explain ns
+  382  kubectl describe ns rajesh
+  383  kubectl explain ns
+  384  kubectl explain ns.spec
+  385  kubectl edit ns rajesh
+  386  clear
+  387  ls
+  388  more deploy.yaml
+  389  1
+  390  clear
+  391  ls
+  392  kubectl apply -f deploy.yaml
+  393  clear
+  394  ls
+  395  vi pod.yaml
+  396  kubectl apply -f pod.yaml
+  397  clear
+  398  ls
+  399  kubectl get pod
+  400  kubectl apply -f pod.yaml -n=rajesh
+  401  kubectl get ns
+  402  kubectl get pods
+  403  kubectl get pods -n=rajesh
+  404  clear
+  405  kubectl delete ns rajesh
+  406  kubectl get ns
+  407  clear
+  408  kubectl get pods --all-namespaces
+  409  clear
+  410  ls
+  411  history
+
+Working with PODS.
+
+LIST a POD
+Create a POD
+        yaml
+        cmd
+EXPLAIN A POD
+LIST a POD
+DESCRIBE A POD
+EDIT A POD
+    Cmd -using EDIT
+    YAML - using Apply
+CONSUME A POD
+    curl
+    exec
+    attach
+    cp
+
+DELETE A POD
+    cmd - using delete
+    yaml using delete
+----------------------
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-pod
+  labels: 
+    app: webserver
+spec:
+  containers:
+  - name: hello-ctr
+    image: nginx
+    ports:
+    - containerPort: 80
+
+
+What you can edit of running pod?
+-Name of the pod -> NO
+[ec2-user@ip-172-31-14-69 ~]$ kubectl edit pod hello-pod
+A copy of your changes has been stored to "/tmp/kubectl-edit-bmsfr.yaml"
+error: At least one of apiVersion, kind and name was changed
+
+- Namespace -> NO
+Error
+A copy of your changes has been stored to "/tmp/kubectl-edit-yyeeq.yaml"
+error: the namespace from the provided object "rajesh1" does not match the namespace "default". You must pass '--namespace=rajesh1' to perform this operation.
+
+- Lable -> YES
+- Image -> YES
+
+
+ 414  kubectl get pod
+  415  kubectl delete deploy edison-deployment
+  416  clear
+  417  kubectl get pod
+  418  kubectl get pod -n=rajesh
+  419  clear
+  420  kubectl
+  421  clear
+  422  kubectl create
+  423  clear
+  424  kubectl explain pod
+  425  kubectl explain pod.spec
+  426  kubectl explain pod.spec.containers
+  427  clear
+  428  ls
+  429  more pod.yaml
+  430  kubectl create -f pod.yaml
+  431  kubectl delete  -f pod.yaml
+  432  kubectl create -f pod.yaml
+  433  kubectl create -f pod.yaml -n=rajesh
+  434  kubectl create ns rajesh
+  435  kubectl create -f pod.yaml -n=rajesh
+  436  kubectl get pods --all-namespaces
+  437  clear
+  438  ls
+  439  kubectl get pods
+  440  kubectl create ns rajesh1
+  441  kubectl create ns rajesh2
+  442  kubectl create -f pod.yaml -n=rajesh1 -n=rajesh2
+  443  kubectl get pod -n=rajesh1
+  444  kubectl get pod -n=rajesh2
+  445  clear
+  446  kubectl get pods
+  447  kubectl describe pod hello-pod
+  448  clear
+  449  ls
+  450  kubectl edit pod hello-pod
+  451  kubectl get pod
+  452  kubectl describe pod hello-pod
+  453  clwar
+  454  clear
+  455  kubectl edit pod hello-pod
+  456  clear
+  457  kubectl edit pod hello-pod
+  458  kubectl get pod
+  459  kubectl edit pod hello-pod
+  460  kubectl get pod
+  461  kubectl edit pod hello-pod
+  462  kubectl get pod
+  463  clear
+  464  kubectl describe pod hello-pod
+  465  kubectl get pod
+  466  clear
+  467  kubectl edit pod hello-pod
+  468  kubectl describe pod hello-pod
+  469  clear
+  470  vi pod.yaml
+  471  kubectl apply -f pod.yaml
+  472  clear
+  473  kubectl get pod
+  474  kubectl describe pod hello-pod
+  475  clear
+  476  ls
+  477  kubectl get pod
+  478*
+  479  curl http://10.44.0.1
+  480  clear
+  481  ls
+  482  kubectl get pod
+  483  kubectl exec -it hello-pod /bin/bash
+  484  kubectl attach hello-pod
+  485  kubectl get pod
+  486  clear
+  487  ls
+  488  kubectl cp pod.yaml hello-pod:/opt
+  489  kubectl exec hello-pod ls /opt
+  490  history
+  kubectl delete -f pod.yaml
+
+
+
+
+  create         Create a resource from a file or from stdin
+  explain        Documentation of resources
+  get            Display one or many resources
+  edit           Edit a resource on the server
+  delete         Delete resources by filenames, stdin, resources and names, or by resources and
+label selector
+describe       Show details of a specific resource or group of resources
+attach         Attach to a running container
+  exec           Execute a command in a container
+  logs           Print the logs for a container in a pod
+  cp             Copy files and directories to and from containers.
+    api-resources  Print the supported API resources on the server
+  api-versions   Print the supported API versions on the server, in the form of "group/version"
+  config         Modify kubeconfig files
