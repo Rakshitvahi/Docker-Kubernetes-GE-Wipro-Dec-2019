@@ -522,3 +522,210 @@ DELETE A Replication Controller
   429  kubectl delete rc hello-rc
   430  kubectl get pods
   431  history
+  ================================
+
+WORKING With deployment
+============================
+Deployment 
+        Replication
+        Controller
+        Versioning
+        Rollout
+        Rollback
+
+Image
+scmgalaxy/nginx-devopsschoolv1
+scmgalaxy/nginx-devopsschoolv2
+
+LIST a deployment
+Create a deployment
+        yaml
+        cmd
+EXPLAIN A deployment
+LIST a deployment
+DESCRIBE A deployment
+EDIT A deployment
+    Cmd -using EDIT
+    YAML - using Apply
+CONSUME A deployment
+    REPLICATE USING Scale
+    Delete one POD and see - Controller
+    Versiing
+
+
+DELETE A deployment
+    cmd - using delete
+    yaml using delete
+-----------------------------------
+
+
+ 570  kubectl api-resources
+  571  kubectl
+  572  kubectl api-versions
+  573  clear
+  574  ls
+  575  kubectl get deploy
+  576  kubectl create
+  577  kubectl create deployment
+  578  kubectl create deployment my-dep --image=scmgalaxy/nginx-devopsschoolv1
+  579  clear
+  580  ls
+  581  kubectl get deploy
+  582  clear
+  583  kubectl get deploy
+  584  ls
+  585  kubectl get deploy
+  586  kubectl get
+  587  kubectl help get
+  588  kubectl get deployment
+  589  kubectl get deployment my-dep -o yaml
+  590  kubectl get deployment my-dep -o yaml --export
+  591  kubectl get deployment my-dep -o yaml
+  592  kubectl get deployment my-dep -o yaml --export
+  593  clear
+  594  kubectl get deployment my-dep -o yaml --export >> dep.yaml
+  595  ls
+  596  more dep.yaml
+  597  vi dep.yaml
+  598  clear
+  599  ls
+  600  kubectl create -f dep.yaml
+  601  kubectl get deployment
+  602  kubectl explain deploy
+  603  kubectl explain deploy.spec
+  604  kubectl explain deploy.spec.template
+  605  kubectl explain deploy.spec.template.spec
+  606  kubectl explain deploy.spec.template.spec.containers
+  607  clear
+  608  kubectl get deployment
+  609  kubectl describe deploy my-dep
+  610  kubectl edit deploy my-dep
+  611  kubectl get pod
+  612  clear
+  613  kubectl get pod
+  614  kubectl delete pod my-dep-5669f6cbdf-27dr8
+  615  kubectl get pod
+  616  clear
+  617  ls
+  618  clear
+  619  ls
+  620  vi dep.yaml
+  621  kubectl apply -f dep.yaml
+  622  kubectl get pod
+  623  clear
+  624  kubectl
+  625  history | grep scale
+
+  626  history
+  627* history | grep sc
+  628  kubectl get deploy
+  629  kubectl scale --replicas=5 deploy/my-dep1
+  630  kubectl get deploy
+  631  clear
+  632  kubectl
+  633  clear
+  634  kubectl rollout
+  635  kubectl rollout history
+  636  kubectl rollout history deploy my-dep
+  637  history
+  638  clear
+  639  ls
+  640  kubectl get deploy
+  641  kubectl delete deploy my-dep
+  642  cler
+  643  clear
+  644  kubectl get deploy
+  645  vi my-d
+  646  ls
+  647  vi dep.yaml
+  648  kubectl apply -f dep.yaml
+  649  clear
+  650  kubectl get deploy
+  651  kubectl get pod -o wide
+  652  curl http://10.44.0.4
+  653  clear
+  654  ls
+  655  kubectl get deploy
+  656  kubectl delete deploy my-dep1
+  657  clear
+  658  vi dep.yaml
+  659  clean
+  660  clear
+  661  ls
+  662  kubectl create -f dep.yaml
+  663  kubectl get deploy
+  664  kubectl get pod -o wide
+  665  curl http://10.44.0.4
+  666*
+  667  clear
+  668  curl http://10.44.0.4
+  669  curl http://10.44.0.1
+  670  clear
+  671  kubectl rollout
+  672  kubectl rollout history deploy my-dep
+  673  kubectl rollout history deploy my-dep1
+  674  clear
+  675  ls
+  676  history
+
+676  history
+  677  clear
+  678  more dep.yaml
+  679  clear
+  680  ls
+  681  vi dep.yaml
+  682  clear
+  683  kubectl
+  684  kubectl rollout
+  685  kubectl rollout deployments
+  686  clear
+  687  l
+  688  sls
+  689  kubectl
+  690  clear
+  691  kubectl
+  692  kubectl get deploy
+  693  kubectl rollout
+  694  clear
+  695  ls
+  696  vi dep.yaml
+  697  clear
+  698  kubectl rollout history deploy my-dep1
+  699  kubectl apply -f dep.yaml
+  700  kubectl rollout history deploy my-dep1
+  701  kubectl rollout status deploy my-dep1
+  702  kubectl rollout history deploy my-dep1
+  703  hisotyr
+  704  history
+  
+704  history
+  705  clear
+  706  kubectl get pods
+  707  clear
+  708  kubectl get pods -o wide
+  709  kubectl scale --replicas=2 deploy/my-dep1
+  710  clear
+  711  kubectl get pods -o wide
+  712  clear
+  713  kubectl get pods -o wide
+  714  clear
+  715  kubectl get pods -o wide
+  716  curl http://10.44.0.7
+  717  curl http://10.44.0.6
+  718  kubectl rollout
+  719  kubectl rollout undo
+  720  kubectl help rollout undo
+  721  clear
+  722  kubectl rollout history deploy my-dep1
+  723  clear
+  724  kubectl rollout undo deploy my-dep1 --to-revision=1
+  725  kubectl get pods -o wide
+  726  clear
+  727  kubectl get pods -o wide
+  728  curl http://10.44.0.4
+  729  curl http://10.44.0.1
+  730  history
+  
+kubectl rollout history deploy my-dep1 
+kubectl rollout status deploy my-dep1 
+kubectl rollout undo deploy my-dep1 --to-revision=1
