@@ -172,3 +172,7 @@ KUBERNETES Worker
 17 15.206.194.194
 18 15.206.186.111
 19 13.232.11.153
+
+How to delete kubeadm setup from MASTER as well NODe?
+==========
+https://www.devopsschool.com/blog/how-to-delete-remove-clean-existing-corrupted-or-old-kubeadm-kubernetes-clusters-setup/
