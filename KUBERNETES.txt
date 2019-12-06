@@ -890,3 +890,67 @@ spec:
 
 ===================================================
 hostpath - nfs - pv - pvc - config
+
+
+ 
+How To Set Up an Elasticsearch, Fluentd and Kibana (EFK) Logging Stack on Kubernetes
+https://www.devopsschool.com/tutorial/kubernetes/kubernetes-logging-with-elasticsearch-fluentd-kibana.html
+
+Kubernetes monitoring with Prometheus
+https://www.devopsschool.com/tutorial/kubernetes/kubernetes-monitoring-with-prometheus-grafana.html
+
+Kubernetes Pod container monitoring
+https://www.devopsschool.com/tutorial/kubernetes/kubernetes-pod-container-monitoring-with-cadvisor-heapster.html
+
+
+CRN job
+https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/
+
+===============================================================================================
+Security
+===============================================================================================
+
+role
+  roles         - TRUE
+  clusterroles  - FALSE
+users
+  normal - CAN NOT BE created
+  sa - serviceaccounts - true
+
+  How to add users into role
+      rolebindings
+      clusterrolebindings
+https://medium.com/containerum/configuring-permissions-in-kubernetes-with-rbac-a456a9717d5d
+
+====================================================
+How to reach out to me?
+    http://rajeshkumar.xyz/
+
+How to get course materials
+        Slides
+          https://www.devopsschool.com/slides/
+          https://www.devopsschool.com/pdf/
+        Tutorials
+          https://www.devopsschool.com/tutorial/
+        Notes - 
+          https://github.com/devopsschool-lab-exercise/Docker-Kubernetes-GE-Wipro-Dec-2019
+        QUIZ
+          https://www.devopsschool.com/lms
+        Sample Programs
+          https://github.com/orgs/devopsschool-projects/dashboard
+          https://github.com/orgs/devopsschool-sample-projects/dashboard
+          https://github.com/devops-school
+        Blogs
+          http://www.devopsschool.com/blog/
+        Videos
+          https://www.youtube.com/channel/UCrXr49kBvXJeQMMl2693c4g
+        Step by Step lab
+        https://www.devopsschool.com/tutorial/kubernetes/labs/
+
+  How to get training certificate 
+    http://devopscertification.co/certificates/kubernetes-certified-engineer/index.html
+
+
+Feedback?
+  PUBLIC 
+  https://www.google.com/maps/place/DevOps+School/@12.964943,77.5973946,17z/data=!4m5!3m4!1s0x3bae15c78e1bd0eb:0x44170a147f09a4b2!8m2!3d12.9649378!4d77.5995726
