@@ -725,7 +725,17 @@ DELETE A deployment
   728  curl http://10.44.0.4
   729  curl http://10.44.0.1
   730  history
-  
+
 kubectl rollout history deploy my-dep1 
 kubectl rollout status deploy my-dep1 
 kubectl rollout undo deploy my-dep1 --to-revision=1
+
+
+kubectl create service clusterip my-cs --tcp=8080:80
+kubectl create service nodeport my-ns --tcp=8080:80
+
+
+app=my-dep
+
+
+WORKSTATIOn - 13.233.69.91
