@@ -745,3 +745,148 @@ kubectl taint node ip-172-31-14-69.ap-south-1.compute.internal node-role.kuberne
 
 EXTRA Worker
 13.126.248.209
+====================================================================
+How to have data persistance beyond pods lifecycle?
+https://kubernetes.io/docs/concepts/storage/#types-of-volumes
+  -----
+  hostpath
+https://www.devopsschool.com/blog/kubernetes-volume-hostpath-explained-with-examples/
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pd
+spec:
+  containers:
+  - image: scmgalaxy/nginx-devopsschoolv1
+    name: test-container
+    volumeMounts:
+    - mountPath: /test-pd
+      name: test-volume
+  volumes:
+  - name: test-volume
+    hostPath:
+      path: /data
+      type: DirectoryOrCreate
+
+
+
+  nfs
+  -----------------------
+
+  pv - pvc
+  
+
+  sudo mount -t nfs -o rw,nosuid 172.31.14.69:/tecnotree /tmp/mylocal
+
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pd3
+spec:
+  containers:
+  - image: scmgalaxy/nginx-devopsschoolv1
+    name: test-container
+    volumeMounts:
+    - mountPath: /test-pd
+      name: test-volume
+  volumes:
+  - name: test-volume
+    nfs:
+      server: 172.31.14.69
+      path: /tecnotree
+
+
+PV and pvc
+https://www.devopsschool.com/blog/persistentvolume-persistentvolumeclaim-volumes-using-hostpath/
+https://www.devopsschool.com/blog/kubernetes-persistentvolume-and-persistentvolumeclaim-using-nfs-volume-types/
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv0001 
+spec:
+  capacity:
+    storage: 5Gi 
+  accessModes:
+  - ReadWriteOnce 
+  nfs: 
+    path: /tecnotree
+    server: 172.31.14.69 
+  persistentVolumeReclaimPolicy: Recycle
+
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-claim1
+spec:
+  accessModes:
+    - ReadWriteOnce 
+  resources:
+    requests:
+      storage: 1Gi 
+
+
+1003  vi config.xml
+ 1004  kubectl create configmap my-config --from-file=config.xml
+ 1005  kubectl get cm
+ 1006  kubectl describe cm my-config
+ 1007  clear
+ 1008  ls
+ 1009  kubectl get cm
+ 1010  history
+
+
+ config.xml
+ -----------------
+ server {
+    listen       80;
+    server_name  localhost;
+
+    location / {
+        proxy_bind 127.0.0.1;
+        proxy_pass http://127.0.0.1:3000;
+    }
+
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: helloworld-nginx
+  labels:
+    app: helloworld-nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.11
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/nginx/conf.d
+  - name: k8s-demo
+    image: wardviaene/k8s-demo
+    ports:
+    - containerPort: 3000
+  volumes:
+    - name: config-volume
+      configMap:
+        name: my-config
+        items:
+        - key: config.xml
+          path: myconfo.conf
+
+
+===================================================
+hostpath - nfs - pv - pvc - config
